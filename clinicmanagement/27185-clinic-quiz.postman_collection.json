@@ -1,0 +1,3012 @@
+{
+  "info": {
+    "_postman_id": "9fca768b-bb6d-4782-9cd0-a272eb6e98ce",
+    "name": "27185-clinic-quiz",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54004374",
+    "_collection_link": "https://go.postman.co/collection/54004374-9fca768b-bb6d-4782-9cd0-a272eb6e98ce?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "offices",
+      "item": [
+        {
+          "name": "saveoffices",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {\n  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Medplus Center\", \"buildingName\": \"Tower A\", \"officeNumber\": 301}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/offices/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "save"
+              ]
+            },
+            "description": "saveoffices"
+          },
+          "response": []
+        },
+        {
+          "name": "saveofficessecond",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Medplus Annex\", \"buildingName\": \"Tower B\", \"officeNumber\": 302}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/offices/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "save"
+              ]
+            },
+            "description": "saveofficessecond"
+          },
+          "response": []
+        },
+        {
+          "name": "saveofficesthird",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Medplus Wing\", \"buildingName\": \"Tower C\", \"officeNumber\": 303}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/offices/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "save"
+              ]
+            },
+            "description": "saveofficesthird"
+          },
+          "response": []
+        },
+        {
+          "name": "getalloffices",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/offices/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "all"
+              ]
+            },
+            "description": "getalloffices"
+          },
+          "response": []
+        },
+        {
+          "name": "findofficebyid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/offices/ac9030c4-7be2-4552-82d6-0f339dbb6f14",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "ac9030c4-7be2-4552-82d6-0f339dbb6f14"
+              ]
+            },
+            "description": "findofficebyid"
+          },
+          "response": []
+        },
+        {
+          "name": "findofficesbyname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/offices/find/name?name=Medplus%20Center",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "find",
+                "name"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Medplus%20Center"
+                }
+              ]
+            },
+            "description": "findofficesbyname"
+          },
+          "response": []
+        },
+        {
+          "name": "findofficeofdoctor",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/offices/find/doctor/0480588a-1959-4763-afec-b7965abf6b46",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "find",
+                "doctor",
+                "0480588a-1959-4763-afec-b7965abf6b46"
+              ]
+            },
+            "description": "findofficeofdoctor"
+          },
+          "response": []
+        },
+        {
+          "name": "updateoffice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Medplus Center\", \"buildingName\": \"Tower A2\", \"officeNumber\": 301}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/offices/update/ac9030c4-7be2-4552-82d6-0f339dbb6f14",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "update",
+                "ac9030c4-7be2-4552-82d6-0f339dbb6f14"
+              ]
+            },
+            "description": "updateoffice"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "specializations",
+      "item": [
+        {
+          "name": "savespecializations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Cardiology\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "save"
+              ]
+            },
+            "description": "savespecializations"
+          },
+          "response": []
+        },
+        {
+          "name": "savespecializationssecond",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Pediatrics\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "save"
+              ]
+            },
+            "description": "savespecializationssecond"
+          },
+          "response": []
+        },
+        {
+          "name": "savespecializationsthird",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Dermatology\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "save"
+              ]
+            },
+            "description": "savespecializationsthird"
+          },
+          "response": []
+        },
+        {
+          "name": "savespecializationsfourth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Neurology\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "save"
+              ]
+            },
+            "description": "savespecializationsfourth"
+          },
+          "response": []
+        },
+        {
+          "name": "getspecializations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "all"
+              ]
+            },
+            "description": "getspecializations"
+          },
+          "response": []
+        },
+        {
+          "name": "findspecializationbyid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/ef9a6e7e-1fe2-434d-a620-979489ad7db6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "ef9a6e7e-1fe2-434d-a620-979489ad7db6"
+              ]
+            },
+            "description": "findspecializationbyid"
+          },
+          "response": []
+        },
+        {
+          "name": "findspecializationsbyname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/find/name?name=Cardiology",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "find",
+                "name"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Cardiology"
+                }
+              ]
+            },
+            "description": "findspecializationsbyname"
+          },
+          "response": []
+        },
+        {
+          "name": "updatespecialization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Cardiology\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/update/ef9a6e7e-1fe2-434d-a620-979489ad7db6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "update",
+                "ef9a6e7e-1fe2-434d-a620-979489ad7db6"
+              ]
+            },
+            "description": "updatespecialization"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "doctors",
+      "item": [
+        {
+          "name": "savedoctors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Confy\", \"lastName\": \"Bravo\", \"dateOfBirth\": \"1990-05-12\", \"office\": {\"id\": \"ac9030c4-7be2-4552-82d6-0f339dbb6f14\"}, \"specializations\": [{\"id\": \"ef9a6e7e-1fe2-434d-a620-979489ad7db6\"}]}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "save"
+              ]
+            },
+            "description": "savedoctors"
+          },
+          "response": []
+        },
+        {
+          "name": "savedoctorssecond",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Aisha\", \"lastName\": \"Nkulikiye\", \"dateOfBirth\": \"1992-08-20\", \"office\": {\"id\": \"6561af2e-ba9a-4821-aa01-500ba0c209dd\"}, \"specializations\": [{\"id\": \"947a4353-27da-4419-bf0e-d371aac65789\"}]}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "save"
+              ]
+            },
+            "description": "savedoctorssecond"
+          },
+          "response": []
+        },
+        {
+          "name": "savedoctorswithoutoffice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Yves\", \"lastName\": \"Habimana\", \"dateOfBirth\": \"1988-11-03\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "save"
+              ]
+            },
+            "description": "savedoctorswithoutoffice"
+          },
+          "response": []
+        },
+        {
+          "name": "getalldoctors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "all"
+              ]
+            },
+            "description": "getalldoctors"
+          },
+          "response": []
+        },
+        {
+          "name": "finddoctorbyid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/0480588a-1959-4763-afec-b7965abf6b46",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "0480588a-1959-4763-afec-b7965abf6b46"
+              ]
+            },
+            "description": "finddoctorbyid"
+          },
+          "response": []
+        },
+        {
+          "name": "finddoctorsbyfirstname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/find/firstName?firstName=Confy",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "find",
+                "firstName"
+              ],
+              "query": [
+                {
+                  "key": "firstName",
+                  "value": "Confy"
+                }
+              ]
+            },
+            "description": "finddoctorsbyfirstname"
+          },
+          "response": []
+        },
+        {
+          "name": "finddoctorsbylastname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/find/lastName?lastName=Bravo",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "find",
+                "lastName"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "Bravo"
+                }
+              ]
+            },
+            "description": "finddoctorsbylastname"
+          },
+          "response": []
+        },
+        {
+          "name": "finddoctorsbyname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/find/name?firstName=Confy&lastName=Bravo",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "find",
+                "name"
+              ],
+              "query": [
+                {
+                  "key": "firstName",
+                  "value": "Confy"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Bravo"
+                }
+              ]
+            },
+            "description": "finddoctorsbyname"
+          },
+          "response": []
+        },
+        {
+          "name": "finddoctorsbyspecialization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/find/specialization/ef9a6e7e-1fe2-434d-a620-979489ad7db6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "find",
+                "specialization",
+                "ef9a6e7e-1fe2-434d-a620-979489ad7db6"
+              ]
+            },
+            "description": "finddoctorsbyspecialization"
+          },
+          "response": []
+        },
+        {
+          "name": "updatedoctor",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Confy\", \"lastName\": \"Bravo\", \"dateOfBirth\": \"1990-05-12\", \"office\": {\"id\": \"ac9030c4-7be2-4552-82d6-0f339dbb6f14\"}, \"specializations\": [{\"id\": \"ef9a6e7e-1fe2-434d-a620-979489ad7db6\"}]}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/update/56332e60-7b51-40a6-945b-254ee85d0a22",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "update",
+                "0480588a-1959-4763-afec-b7965abf6b46"
+              ]
+            },
+            "description": "updatedoctor"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "patients",
+      "item": [
+        {
+          "name": "savepatients",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Diane\", \"lastName\": \"Uwase\", \"dateOfBirth\": \"1998-04-09\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/patients/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "save"
+              ]
+            },
+            "description": "savepatients"
+          },
+          "response": []
+        },
+        {
+          "name": "savepatientssecond",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Joel\", \"lastName\": \"Uwase\", \"dateOfBirth\": \"1995-09-21\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/patients/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "save"
+              ]
+            },
+            "description": "savepatientssecond"
+          },
+          "response": []
+        },
+        {
+          "name": "savepatientsthird",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Peace\", \"lastName\": \"Umutoni\", \"dateOfBirth\": \"2001-01-15\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/patients/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "save"
+              ]
+            },
+            "description": "savepatientsthird"
+          },
+          "response": []
+        },
+        {
+          "name": "savepatientsfourth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Sandrine\", \"lastName\": \"Nshimirimana\", \"dateOfBirth\": \"1993-07-30\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/patients/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "save"
+              ]
+            },
+            "description": "savepatientsfourth"
+          },
+          "response": []
+        },
+        {
+          "name": "savepatientsfifth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Providence\", \"lastName\": \"Iradukunda\", \"dateOfBirth\": \"2000-12-05\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/patients/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "save"
+              ]
+            },
+            "description": "savepatientsfifth"
+          },
+          "response": []
+        },
+        {
+          "name": "getallpatients",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "all"
+              ]
+            },
+            "description": "getallpatients"
+          },
+          "response": []
+        },
+        {
+          "name": "findpatientbyid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/90f58e1f-165b-4877-bdf1-2296f45d6c92",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "90f58e1f-165b-4877-bdf1-2296f45d6c92"
+              ]
+            },
+            "description": "findpatientbyid"
+          },
+          "response": []
+        },
+        {
+          "name": "findpatientsbyfirstname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/find/firstName?firstName=Diane",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "find",
+                "firstName"
+              ],
+              "query": [
+                {
+                  "key": "firstName",
+                  "value": "Diane"
+                }
+              ]
+            },
+            "description": "findpatientsbyfirstname"
+          },
+          "response": []
+        },
+        {
+          "name": "findpatientsbyname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/find/name?firstName=Joel&lastName=Uwase",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "find",
+                "name"
+              ],
+              "query": [
+                {
+                  "key": "firstName",
+                  "value": "Joel"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Uwase"
+                }
+              ]
+            },
+            "description": "findpatientsbyname"
+          },
+          "response": []
+        },
+        {
+          "name": "updatepatient",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\": \"Diane\", \"lastName\": \"Uwase\", \"dateOfBirth\": \"1998-04-09\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/patients/update/90f58e1f-165b-4877-bdf1-2296f45d6c92",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "update",
+                "90f58e1f-165b-4877-bdf1-2296f45d6c92"
+              ]
+            },
+            "description": "updatepatient"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "appointments",
+      "item": [
+        {
+          "name": "saveappointments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-05\", \"reason\": \"Malaria check up\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"90f58e1f-165b-4877-bdf1-2296f45d6c92\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointments"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentssecond",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-12\", \"reason\": \"Skin rash consultation\", \"status\": \"CONFIRMED\", \"patient\": {\"id\": \"90f58e1f-165b-4877-bdf1-2296f45d6c92\"}, \"doctor\": {\"id\": \"6e14f4da-af9c-4492-b84b-e9bc309da71f\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentssecond"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentsthird",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-11-03\", \"reason\": \"General check up\", \"status\": \"COMPLETED\", \"patient\": {\"id\": \"90f58e1f-165b-4877-bdf1-2296f45d6c92\"}, \"doctor\": {\"id\": \"8a9caa97-5924-4403-8800-97a29be90012\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentsthird"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentsfourth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-20\", \"reason\": \"High blood pressure follow up\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"7732a601-0cfa-4dc3-bc48-431db7531341\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentsfourth"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentsfifth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-20\", \"reason\": \"Chest pain\", \"status\": \"CANCELLED\", \"patient\": {\"id\": \"7732a601-0cfa-4dc3-bc48-431db7531341\"}, \"doctor\": {\"id\": \"6e14f4da-af9c-4492-b84b-e9bc309da71f\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentsfifth"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentssixth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-28\", \"reason\": \"Acne treatment\", \"status\": \"CONFIRMED\", \"patient\": {\"id\": \"4a82616a-3683-4243-ba4d-3ca8d4adcc03\"}, \"doctor\": {\"id\": \"6e14f4da-af9c-4492-b84b-e9bc309da71f\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentssixth"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentseventh",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-11-10\", \"reason\": \"Heart check up\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"3e2b8fa1-aa5c-4947-a768-d4e35f8425f6\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentseventh"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentseighth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-11-17\", \"reason\": \"Child vaccination\", \"status\": \"COMPLETED\", \"patient\": {\"id\": \"d48fe1c7-a86c-454b-af8f-a452761e0ef9\"}, \"doctor\": {\"id\": \"8a9caa97-5924-4403-8800-97a29be90012\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentseighth"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentsninth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-11-24\", \"reason\": \"Headache and fever\", \"status\": \"CANCELLED\", \"patient\": {\"id\": \"4a82616a-3683-4243-ba4d-3ca8d4adcc03\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentsninth"
+          },
+          "response": []
+        },
+        {
+          "name": "saveappointmentstenth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('save succeeds or reports duplicate', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-15\", \"reason\": \"Antenatal check up\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"d48fe1c7-a86c-454b-af8f-a452761e0ef9\"}, \"doctor\": {\"id\": \"8a9caa97-5924-4403-8800-97a29be90012\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "saveappointmentstenth"
+          },
+          "response": []
+        },
+        {
+          "name": "a4saveduplicateappointment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('duplicate booking is rejected', function () {",
+                  "  pm.expect(pm.response.code).to.equal(409);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-10-05\", \"reason\": \"duplicate doctor and date test\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"4a82616a-3683-4243-ba4d-3ca8d4adcc03\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "save"
+              ]
+            },
+            "description": "a4saveduplicateappointment"
+          },
+          "response": []
+        },
+        {
+          "name": "getallappointments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "all"
+              ]
+            },
+            "description": "getallappointments"
+          },
+          "response": []
+        },
+        {
+          "name": "findappointmentbyid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/56400f4b-eb37-45ee-a1a6-e275a76df76d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "56400f4b-eb37-45ee-a1a6-e275a76df76d"
+              ]
+            },
+            "description": "findappointmentbyid"
+          },
+          "response": []
+        },
+        {
+          "name": "findappointmentsbypatient",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/find/patient/90f58e1f-165b-4877-bdf1-2296f45d6c92",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "find",
+                "patient",
+                "90f58e1f-165b-4877-bdf1-2296f45d6c92"
+              ]
+            },
+            "description": "findappointmentsbypatient"
+          },
+          "response": []
+        },
+        {
+          "name": "findappointmentsbydoctor",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/find/doctor/0480588a-1959-4763-afec-b7965abf6b46",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "find",
+                "doctor",
+                "0480588a-1959-4763-afec-b7965abf6b46"
+              ]
+            },
+            "description": "findappointmentsbydoctor"
+          },
+          "response": []
+        },
+        {
+          "name": "updateappointment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"appointmentDate\": \"2026-11-30\", \"reason\": \"Updated reason\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"90f58e1f-165b-4877-bdf1-2296f45d6c92\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/update/56400f4b-eb37-45ee-a1a6-e275a76df76d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "update",
+                "56400f4b-eb37-45ee-a1a6-e275a76df76d"
+              ]
+            },
+            "description": "updateappointment"
+          },
+          "response": []
+        },
+        {
+          "name": "deleteappointment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/delete/56400f4b-eb37-45ee-a1a6-e275a76df76d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "delete",
+                "56400f4b-eb37-45ee-a1a6-e275a76df76d"
+              ]
+            },
+            "description": "deleteappointment"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "quiz-endpoint-testing",
+      "item": [
+        {
+          "name": "a1patientsbylastname",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/by-last-name?lastName=Uwase",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "Uwase"
+                }
+              ]
+            },
+            "description": "a1patientsbylastname"
+          },
+          "response": []
+        },
+        {
+          "name": "a2appointmentsbystatus",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/by-status?status=SCHEDULED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "SCHEDULED"
+                }
+              ]
+            },
+            "description": "a2appointmentsbystatus"
+          },
+          "response": []
+        },
+        {
+          "name": "a3appointmentsbetween",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/between?start=2026-10-01&end=2026-11-01",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-11-01"
+                }
+              ]
+            },
+            "description": "a3appointmentsbetween"
+          },
+          "response": []
+        },
+        {
+          "name": "b1doctorsbyspecialization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/by-specialization?name=Cardiology",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "by-specialization"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Cardiology"
+                }
+              ]
+            },
+            "description": "b1doctorsbyspecialization"
+          },
+          "response": []
+        },
+        {
+          "name": "b2doctorswithoutoffice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/doctors/without-office",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "doctors",
+                "without-office"
+              ]
+            },
+            "description": "b2doctorswithoutoffice"
+          },
+          "response": []
+        },
+        {
+          "name": "b3unusedspecializations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/specializations/unused",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "specializations",
+                "unused"
+              ]
+            },
+            "description": "b3unusedspecializations"
+          },
+          "response": []
+        },
+        {
+          "name": "b4patientsofdoctor",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/of-doctor/0480588a-1959-4763-afec-b7965abf6b46",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "of-doctor",
+                "0480588a-1959-4763-afec-b7965abf6b46"
+              ]
+            },
+            "description": "b4patientsofdoctor"
+          },
+          "response": []
+        },
+        {
+          "name": "c1appointmentsbystatuscount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/stats/by-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "stats",
+                "by-status"
+              ]
+            },
+            "description": "c1appointmentsbystatuscount"
+          },
+          "response": []
+        },
+        {
+          "name": "c2frequentpatients",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/patients/frequent?min=2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "patients",
+                "frequent"
+              ],
+              "query": [
+                {
+                  "key": "min",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "c2frequentpatients"
+          },
+          "response": []
+        },
+        {
+          "name": "c3busiestoffice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/offices/busiest",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "offices",
+                "busiest"
+              ]
+            },
+            "description": "c3busiestoffice"
+          },
+          "response": []
+        },
+        {
+          "name": "c4cancelappointmentsonday",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/cancel-day?doctorId=0480588a-1959-4763-afec-b7965abf6b46&date=2026-10-20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "doctorId",
+                  "value": "0480588a-1959-4763-afec-b7965abf6b46"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            },
+            "description": "c4cancelappointmentsonday"
+          },
+          "response": []
+        },
+        {
+          "name": "bonus1appointmentspage",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "pm.test('body is valid json', function () {",
+                  "  pm.response.json();",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/page?page=0&size=5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "bonus1appointmentspage"
+          },
+          "response": []
+        },
+        {
+          "name": "bonus2deletecancelledappointments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/appointments/cancelled-before?date=2026-12-01",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "appointments",
+                "cancelled-before"
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "2026-12-01"
+                }
+              ]
+            },
+            "description": "bonus2deletecancelledappointments"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

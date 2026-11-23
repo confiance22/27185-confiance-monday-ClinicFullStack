@@ -1,0 +1,757 @@
+{
+  "info": {
+    "_postman_id": "aa51ffc9-1f2a-4b3c-8d4e-5f6a7b8c9d0e",
+    "name": "27185-clinic-quiz2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54004374"
+  },
+  "item": [
+    {
+      "name": "A1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('adds specialization or reports conflict', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 409]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/doctors/0480588a-1959-4763-afec-b7965abf6b46/specializations/ef9a6e7e-1fe2-434d-a620-979489ad7db6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "doctors",
+            "0480588a-1959-4763-afec-b7965abf6b46",
+            "specializations",
+            "ef9a6e7e-1fe2-434d-a620-979489ad7db6"
+          ]
+        },
+        "description": "A1 add a specialization to a doctor"
+      },
+      "response": []
+    },
+    {
+      "name": "A2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('removes specialization or reports conflict', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 409]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/doctors/0480588a-1959-4763-afec-b7965abf6b46/specializations/ad4e3429-aad1-4754-94f7-4a9ae37cd4eb",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "doctors",
+            "0480588a-1959-4763-afec-b7965abf6b46",
+            "specializations",
+            "ad4e3429-aad1-4754-94f7-4a9ae37cd4eb"
+          ]
+        },
+        "description": "A2 remove a specialization from a doctor"
+      },
+      "response": []
+    },
+    {
+      "name": "A3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok', function () {",
+              "  pm.expect(pm.response.code).to.equal(200);",
+              "});",
+              "pm.test('body is valid json', function () {",
+              "  pm.response.json();",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/offices/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "offices",
+            "free"
+          ]
+        },
+        "description": "A3 free offices"
+      },
+      "response": []
+    },
+    {
+      "name": "A4",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('moves doctor or reports taken office', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 409, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/doctors/0480588a-1959-4763-afec-b7965abf6b46/office?officeNumber=104",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "doctors",
+            "0480588a-1959-4763-afec-b7965abf6b46",
+            "office"
+          ],
+          "query": [
+            {
+              "key": "officeNumber",
+              "value": "104"
+            }
+          ]
+        },
+        "description": "A4 move a doctor to a free office"
+      },
+      "response": []
+    },
+    {
+      "name": "B1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('saves appointment or reports rule error', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([201, 400, 409]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"appointmentDate\": \"2026-11-25\", \"reason\": \"Follow up on treatment\", \"status\": \"SCHEDULED\", \"patient\": {\"id\": \"90f58e1f-165b-4877-bdf1-2296f45d6c92\"}, \"doctor\": {\"id\": \"0480588a-1959-4763-afec-b7965abf6b46\"}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/appointments/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "appointments",
+            "save"
+          ]
+        },
+        "description": "B1 save an appointment (no past dates, saved as SCHEDULED)"
+      },
+      "response": []
+    },
+    {
+      "name": "B2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('changes status or reports invalid transition', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 400, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/appointments/714e0d7a-f272-41c7-93b5-52fe4e56fb90/status?status=CONFIRMED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "appointments",
+            "714e0d7a-f272-41c7-93b5-52fe4e56fb90",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "CONFIRMED"
+            }
+          ]
+        },
+        "description": "B2 change an appointment status"
+      },
+      "response": []
+    },
+    {
+      "name": "B3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('reschedules or reports booking conflict', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 400, 404, 409]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/appointments/714e0d7a-f272-41c7-93b5-52fe4e56fb90/reschedule?newDate=2026-11-11",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "appointments",
+            "714e0d7a-f272-41c7-93b5-52fe4e56fb90",
+            "reschedule"
+          ],
+          "query": [
+            {
+              "key": "newDate",
+              "value": "2026-11-11"
+            }
+          ]
+        },
+        "description": "B3 reschedule an appointment"
+      },
+      "response": []
+    },
+    {
+      "name": "C1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('saves prescription or reports rule error', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([201, 400, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"medicineName\": \"Paracetamol\", \"dosage\": \"2 tablets, 2 times a day\", \"durationDays\": 5}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/prescriptions/save?appointmentId=0b057966-0d0b-4d06-a72a-593d3b98b4cd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "prescriptions",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "appointmentId",
+              "value": "0b057966-0d0b-4d06-a72a-593d3b98b4cd"
+            }
+          ]
+        },
+        "description": "C1 write a prescription for a COMPLETED appointment"
+      },
+      "response": []
+    },
+    {
+      "name": "C2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok or 404', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/prescriptions/appointment/0b057966-0d0b-4d06-a72a-593d3b98b4cd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "prescriptions",
+            "appointment",
+            "0b057966-0d0b-4d06-a72a-593d3b98b4cd"
+          ]
+        },
+        "description": "C2 prescriptions of an appointment"
+      },
+      "response": []
+    },
+    {
+      "name": "C3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok', function () {",
+              "  pm.expect(pm.response.code).to.equal(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/prescriptions/patient/SS001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "prescriptions",
+            "patient",
+            "SS001"
+          ]
+        },
+        "description": "C3 prescriptions of a patient by ssNumber"
+      },
+      "response": []
+    },
+    {
+      "name": "C4",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('updates prescription or reports 404', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"medicineName\": \"Coartem\", \"dosage\": \"2 tablets twice daily\", \"durationDays\": 3}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/prescriptions/update/8a1b2c3d-4e5f-6a7b-8c9d-8a1b2c3d4e5f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "prescriptions",
+            "update",
+            "8a1b2c3d-4e5f-6a7b-8c9d-8a1b2c3d4e5f"
+          ]
+        },
+        "description": "C4 update a prescription"
+      },
+      "response": []
+    },
+    {
+      "name": "C4-delete",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('deletes prescription or reports 404', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/prescriptions/delete/8a1b2c3d-4e5f-6a7b-8c9d-8a1b2c3d4e5f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "prescriptions",
+            "delete",
+            "8a1b2c3d-4e5f-6a7b-8c9d-8a1b2c3d4e5f"
+          ]
+        },
+        "description": "C4 delete a prescription"
+      },
+      "response": []
+    },
+    {
+      "name": "D1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok or 404', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/doctors/0480588a-1959-4763-afec-b7965abf6b46/agenda?date=2026-10-20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "doctors",
+            "0480588a-1959-4763-afec-b7965abf6b46",
+            "agenda"
+          ],
+          "query": [
+            {
+              "key": "date",
+              "value": "2026-10-20"
+            }
+          ]
+        },
+        "description": "D1 doctor agenda for a day"
+      },
+      "response": []
+    },
+    {
+      "name": "D2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok or 404', function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/patients/SS001/upcoming",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "patients",
+            "SS001",
+            "upcoming"
+          ]
+        },
+        "description": "D2 upcoming appointments of a patient"
+      },
+      "response": []
+    },
+    {
+      "name": "D3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok', function () {",
+              "  pm.expect(pm.response.code).to.equal(200);",
+              "});",
+              "pm.test('body is valid json', function () {",
+              "  pm.response.json();",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/doctors/search?name=bra",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "doctors",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "bra"
+            }
+          ]
+        },
+        "description": "D3 search doctors by name"
+      },
+      "response": []
+    },
+    {
+      "name": "D4",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok', function () {",
+              "  pm.expect(pm.response.code).to.equal(200);",
+              "});",
+              "pm.test('body is valid json', function () {",
+              "  pm.response.json();",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dashboard/summary",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        },
+        "description": "D4 clinic dashboard summary"
+      },
+      "response": []
+    },
+    {
+      "name": "Bonus1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok', function () {",
+              "  pm.expect(pm.response.code).to.equal(200);",
+              "});",
+              "pm.test('body is valid json', function () {",
+              "  pm.response.json();",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/prescriptions/stats/top-medicines",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "prescriptions",
+            "stats",
+            "top-medicines"
+          ]
+        },
+        "description": "Bonus: most prescribed medicines"
+      },
+      "response": []
+    },
+    {
+      "name": "Bonus2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is ok', function () {",
+              "  pm.expect(pm.response.code).to.equal(200);",
+              "});",
+              "pm.test('body is valid json', function () {",
+              "  pm.response.json();",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/doctors/workload?start=2026-11-01&end=2026-11-30",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "doctors",
+            "workload"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-11-01"
+            },
+            {
+              "key": "end",
+              "value": "2026-11-30"
+            }
+          ]
+        },
+        "description": "Bonus: doctor workload between two dates"
+      },
+      "response": []
+    }
+  ]
+}

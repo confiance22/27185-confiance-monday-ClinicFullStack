@@ -1,0 +1,14 @@
+# history
+.history/
+
+# frontend
+clinic-frontend/node_modules/
+clinic-frontend/dist/
+
+# backend
+clinicmanagement/target/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
