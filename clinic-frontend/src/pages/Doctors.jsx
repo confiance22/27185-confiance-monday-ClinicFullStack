@@ -41,7 +41,7 @@ function Doctors() {
 
     return (
         <div style={boxStyle}>
-            <h2 style={{ textAlign: 'center', fontSize: '24px' }} className="font-bold">All Doctors</h2>
+            <h2 style={{ textAlign: 'center', fontSize: '24px' }} className="font-bold">All Available Doctors</h2>
             <div style={{ marginBottom: '10px' }}>
                 <input style={{ border: '1px solid #9ca3af', padding: '4px 8px', borderRadius: '0px', marginRight: '5px', width: '200px' }} type="text" placeholder="Search by name" value={search} onChange={(e) => setSearch(e.target.value)} />
                 <button style={{ padding: '4px 14px', border: '1px solid #000000', backgroundColor: '#000000', color: '#ffffff', cursor: 'pointer', borderRadius: '0px' }} onClick={handleSearch}>Search</button>
