@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 function Navbar() {
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '150px', height: '100vh', backgroundColor: '#f8f9fa', padding: '20px', boxSizing: 'border-box' }}>
-            <h3 style={{ fontSize: '18px', marginBottom: '20px' }} className='font-bold'>Sidebar</h3>
-            <Link to="/office" style={{ display: 'block', marginBottom: '10px' }}>Office</Link>
-            <Link to="/offices" style={{ display: 'block' }}>Offices</Link>
+            <Link to="/office" style={{ display: 'block', marginBottom: '10px' }}>Add Office</Link>
+            <Link to="/offices" style={{ display: 'block', marginBottom: '10px' }}>View Offices</Link>
+            <Link to="/doctor" style={{ display: 'block', marginBottom: '10px' }}>Add Doctor</Link>
+            <Link to="/doctors" style={{ display: 'block', marginBottom: '10px' }}>View Doctors</Link>
+            <Link to="/patient" style={{ display: 'block', marginBottom: '10px' }}>Add Patient</Link>
+            <Link to="/patients" style={{ display: 'block', marginBottom: '10px' }}>View Patients</Link>
+            <Link to="/appointment" style={{ display: 'block', marginBottom: '10px' }}>Add Appointment</Link>
+            <Link to="/appointments" style={{ display: 'block' }}>View Appointments</Link>
         </div>
     );
 }
