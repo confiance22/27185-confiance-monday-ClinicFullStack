@@ -44,14 +44,14 @@ function Offices() {
 
     const handleUpdate = (office) => {
         localStorage.setItem('editOffice', JSON.stringify(office));
-        window.location.href = '/';
+        window.location.href = '/office';
     };
 
     const boxStyle = { border: '2px solid black', margin: '100px auto', padding: '20px', width: '600px', borderRadius: '0px' };
 
     return (
         <div style={boxStyle}>
-            <h2 style={{ textAlign: 'center', fontSize: '24px' }} className="font-bold">All Offices</h2>
+            <h2 style={{ textAlign: 'center', fontSize: '24px' }} className="font-bold">All Available Offices</h2>
 
             <div style={{ marginBottom: '10px' }}>
                 <input style={{ border: '1px solid #9ca3af', padding: '4px 8px', borderRadius: '0px', marginRight: '5px', width: '200px' }} type="text" placeholder="Search by name or number" value={search} onChange={(e) => setSearch(e.target.value)}/>
