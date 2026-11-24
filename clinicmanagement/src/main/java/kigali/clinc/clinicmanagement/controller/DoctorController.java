@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import kigali.clinc.clinicmanagement.domain.Doctor;
 import kigali.clinc.clinicmanagement.service.DoctorService;
@@ -24,7 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
-@RestController 
+@RestController
+@CrossOrigin(origins = "*")
 @RequestMapping (value = "/api/doctors")
 public class DoctorController {
     
