@@ -55,7 +55,7 @@ function Offices() {
 
             <div style={{ marginBottom: '10px' }}>
                 <input style={{ border: '1px solid #9ca3af', padding: '4px 8px', borderRadius: '0px', marginRight: '5px', width: '200px' }} type="text" placeholder="Search by name or number" value={search} onChange={(e) => setSearch(e.target.value)}/>
-                <Button buttonlabel="Search" action={handleSearch} />
+                <button style={{ padding: '4px 14px', border: '1px solid #000000', backgroundColor: '#000000', color: '#ffffff', cursor: 'pointer', borderRadius: '0px' }} onClick={handleSearch}>Search</button>
             </div>
 
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
