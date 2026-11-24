@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Button from '../components/Button';
 
 function Patients() {
     const [patients, setPatients] = useState([]);
@@ -62,8 +63,8 @@ function Patients() {
                             <td style={{ border: '1px solid #9ca3af', padding: '6px' }}>{patient.lastName}</td>
                             <td style={{ border: '1px solid #9ca3af', padding: '6px' }}>{patient.ssNumber}</td>
                             <td style={{ border: '1px solid #9ca3af', padding: '6px' }}>
-                                <button style={{ padding: '2px 8px', border: '1px solid #2563eb', backgroundColor: '#2563eb', color: '#ffffff', cursor: 'pointer', borderRadius: '0px', marginRight: '4px' }} onClick={() => handleUpdate(patient)}>Update</button>
-                                <button style={{ padding: '2px 8px', border: '1px solid #dc2626', backgroundColor: '#dc2626', color: '#ffffff', cursor: 'pointer', borderRadius: '0px' }} onClick={() => handleDelete(patient.id)}>Delete</button>
+                                <Button buttonlabel="Update" action={() => handleUpdate(patient)} />
+                                <Button buttonlabel="Delete" action={() => handleDelete(patient.id)} />
                             </td>
                         </tr>
                     ))}
