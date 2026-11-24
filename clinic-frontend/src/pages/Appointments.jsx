@@ -37,7 +37,7 @@ function Appointments() {
         window.location.href = '/appointment';
     };
 
-    const boxStyle = { border: '2px solid black', margin: '100px auto', padding: '20px', width: '600px', borderRadius: '0px' };
+    const boxStyle = { border: '2px solid black', margin: '100px auto', padding: '20px', width: '700px', borderRadius: '0px' };
 
     return (
         <div style={boxStyle}>
@@ -49,10 +49,10 @@ function Appointments() {
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                     <tr>
-                        <th style={{ border: '1px solid #9ca3af', padding: '6px' }}>Date</th>
+                        <th style={{ border: '1px solid #9ca3af', padding: '6px', whiteSpace: 'nowrap' }}>Date</th>
                         <th style={{ border: '1px solid #9ca3af', padding: '6px' }}>Reason</th>
                         <th style={{ border: '1px solid #9ca3af', padding: '6px' }}>Status</th>
-                        <th style={{ border: '1px solid #9ca3af', padding: '6px' }}>Action</th>
+                        <th style={{ border: '1px solid #9ca3af', padding: '6px', whiteSpace: 'nowrap' }}>Action</th>
                     </tr>
                 </thead>
                 <tbody>
